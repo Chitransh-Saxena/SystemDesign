@@ -30,4 +30,6 @@ UML Diagrams
                 -> We mention flows like if/else
                 -> Switch
                 -> Flow under what return value, under what condition what happens
-        -> There are other more, but I am not gonna discuss them 
+        -> There are other more, but I am not gonna discuss them
+
+We often study the above principles in Object Oriented Analysis
