@@ -1,0 +1,71 @@
+Overview
+-> Instead of variables driving the program, we have objects which act upon those variables and functionalities
+-> These objects are the ones which drive the entire program
+-> Wrapping information in an entity called class, and maintaining those classes and their interaction helps a lot
+    -> Helps in writing a secure code
+        -> We can define access modifiers of several fields
+    -> Helps in writing complex codes
+        -> Since the classes can be structured very neatly, the code can be modified simply in the classes itself
+    -> Repeated code can be avoided
+
+
+Class
+    -> A class is basically a blueprint of an entity like User, Employee etc.
+    -> We define attributes and functionalities of the class
+    -> Example cpp class
+
+    public class User
+    {
+        private:
+            int id;
+            std::string name;
+            int age;
+        
+        public:
+            User(int id, std::string name, int age)
+            {
+                this->id = id;
+                this->name = name;
+                this->age = age;
+            }
+
+            std::string getName()
+            {
+                return name;
+            }
+    };
+
+-> So, all the functionalities that we want a user to have or implement should be defined in a user class
+
+-> Main concepts / principles of Object Oriented Programming / Design
+    
+    -> Encapsulation
+        -> Hide the fields which we do not want the user to modify
+        -> Fields like name of a user, his unique id etc are not supposed to be modify
+        -> So, we can just mark them as private and define methods to change them if at all we want that
+
+    -> Inheritence
+        -> One class inherits the properties from a different class (parent class)
+        -> This helps in not re-writing a functionality (method) which is common for 2 different kinds of entities
+        -> When a child inherits from a parent, it basically gets all the attributes from the parent (but not the private members, need to make them protected for that)
+    
+    -> Polymorphism
+        -> When one parent class (say animal), creates 2 children classes (say dog and cat)
+        -> And these child classes have same functionality but output is different
+            -> Example, a function named speak.
+                -> void speak(){}
+        -> This function will output "meow" for cat, and "bhow" for dog
+        -> In CPP, we can mark these functions as virtual functions and make sure, that during compile time
+            -> We can call whichever functionality we want.
+            -> Example: Animal d = new Dog();
+    
+    -> Abstraction
+        -> This is basically exposing an interface of a whole functionality to a user or a different developer
+        -> We hide the complex code of something in a library or something like that
+        -> Then we just provide methods to use so that some input is given, and an output is recieved based on the complex processing
+        -> Example:
+            -> A camera clicks picture in a click of a button.
+            -> but so much rendering and capturing is happening behind the scenes
+            -> But the user need not know about it
+
+
