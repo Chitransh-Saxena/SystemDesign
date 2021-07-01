@@ -1,0 +1,33 @@
+When we have a High Level Design, that means we have a clear picture of requirements
+Now, with these, we want to understand, how to move forward
+
+To, form a LLD with HLD, we use a UML diagram
+    -> Unified Modelling Diagram
+        -> It basically shows the entities
+        -> Indivisual behaviour of these entities
+        -> Interaction among those entities
+    -> With a UML in hand,
+        -> we use OOP principles to write a standard and secure application
+        -> These OOP principles make sure that the classes and their attributes have a proper standard
+        -> These OOP standards help in writing a secure application which can be easily modified according to needs
+    -> SOLID principles are used as well
+
+UML Diagrams
+-> UML is a parent group name, it contains 2 main categories of Diagrams
+    1. Structural UML Diagrams
+        -> Focusses on structure and correlation of entities
+        -> Class Diagram -> Object Diagram -> Package Diagram -> Component Diagram
+    2. Behavioural UML Diagrams
+        -> It kind of methods and functionalities that we can support
+        -> It basically clarifies the caller, return value, the actor to which it is returning
+        -> Sequence Diagram
+            -> A general idea of flow of the program, from where the flow will start and how it will go through differnet objects
+        -> Use Case Diagram
+            -> A general idea of what a certain user can do in a system
+        -> Activity Diagram
+            -> This is mostly the algorithm in terms of diagram.
+            -> What is the flow under different conditions
+                -> We mention flows like if/else
+                -> Switch
+                -> Flow under what return value, under what condition what happens
+        -> There are other more, but I am not gonna discuss them 
