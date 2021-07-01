@@ -1,0 +1,12 @@
+Requirements for a Parking Lot
+
+-> There should be multiple floors in parking Lot
+-> There should be multiple gates
+-> There should be a parking attendant at each gate
+-> There will be entry and exit gates
+    -> We can understand that the processing of multiple things that are performed at the time of entry and exit will happen here
+-> Cost can designed as per will
+    -> We should implement this in some greater global variable so that when needed, could be changed easily
+-> Parking space should facilitate cars of all types
+    -> Space optimization is expected
+-> We should display on entry how many cars are there already, and how much free space for each type of car (Hetch-back, SUV, Sedan etc.)
