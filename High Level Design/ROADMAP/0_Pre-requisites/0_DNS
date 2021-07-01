@@ -1,0 +1,33 @@
+How two devices connected to internet locate and communicate with each other?
+
+    -> Simply put, web browsers interact each other with IP addresses.
+    -> DNS translates the domain names into the IP address
+
+-> How it works?
+    -> When a user wants to load a web-page, a translation must occur, from what the user types (something.com) to a concrete IP address (0.0.1.2)
+    -> This process is further granulated by 4 different hardware components
+
+    1. User types in the domain name, and the query reaches the DNS recursive resolver (another server)
+    2. The resolver then queries the DNS rootnameserver
+        -> It is a server which kind of keeps an index of which domain name resolves to what IP.
+        -> NOTE: This is not the final step, it just gives the index
+    3. The rootnameserver responds with the address of Top Level Domain name like (.com, .org ) etc.
+    4. The resolver than (Step 1) then queries to .com or .org TLD
+    5. Now, the root nameserver responds with the IP address to the DNS Recursive resolver
+    6. This IP is then returned to the browsers
+    7. Now the browser makes a http request to that IP
+    8. The server at that IP returns a web-page to be rendered by the client browser
+
+-> What is a DNS Resolver?
+    -> A DNS Resolver is basically the first step which our browser requests to with queries
+
+-> What is DNS Caching?
+    -> By the name of caching we understand that the results would be stored in some temporary storage so that the look up and query resolution happens faster
+    
+    -> Browser level caching
+        -> Basically browsers cache the DNS records till some extent
+        -> Check this in your browser - chrome://net-internals/#dns.
+    
+    -> OS Level DNS caching
+        -> Local persistence layer also keeps track of DNS records
+        -> Still need clarity on this

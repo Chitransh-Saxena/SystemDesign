@@ -1,0 +1,22 @@
+-> REST stands for Representional State Transfer
+    -> It is an architecture style for designing loosely coupled applications over HTTP
+    -> These are majorly used in web-development
+    -> REST does not impose any rules. It just gives design guidelines
+
+Here are the few architectural constraints which REST wants to impose
+
+-> Uniform Interface
+    -> For all the APIs the interface should be similar, so that if a developer is familar to one, he can take similar approach for others
+    -> Could be a UI based or commandline based
+-> Client-server
+    -> Client and server applications should be loosely coupled, so that they can evolve independetly
+-> Stateless
+    -> The server shall not store any result or any state about the HTTP request that the client made
+    -> Caching is a different thing though
+
+-> Cachable
+    -> Resources must be cachable in order to provide faster results to the clients
+-> Layered System
+    -> It can be considered as a distributed system, but where the work is distributed as well
+    -> API could be deployed on server A, disk could be there on server B, and some other activities could be there on server C.
+    

@@ -1,0 +1,9 @@
+Today most computers interact through TCP/IP
+    -> TCP - Transmission Control Protocol
+    -> IP - Internet Protocol
+
+-> These basically set some standard rules to allow computers to communicate on any network
+
+How they work?
+    -> IP is responsible for figuring out the IP to which the data is sent
+    -> TCP is actually responsible for sending the data
