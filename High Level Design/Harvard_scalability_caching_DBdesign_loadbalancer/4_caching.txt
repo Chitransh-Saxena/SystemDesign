@@ -7,7 +7,7 @@ Caching in system design
 	
 	-> If we have a system which is hitting the database repeatedly, we can introduce some sort of cache before the database
 		-> This can REDUCE DB LOAD
-	S
+		
 	-> So, basically, caching is a storing mechanism which can speed up user responses
 	
 	-> We can NOT store everything in cache, because it is an expensive hardware

@@ -1,0 +1,6 @@
+* Creating Inventory/Tickets
+* Booking the Tickets
+    ** Distributed Transaction in microservices
+    ** Avoiding duplicate booking/Concurrency in the system
+* Creating user account
+* Search Trains / PNR
