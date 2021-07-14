@@ -1,1 +1,38 @@
-Based on the use-case diagram
+-> Vehicle class - Store information about the Vehicle
+    -> This is basically a client which will be ingested by parking system and assigned a floor
+
+
+-> ParkingFloor class - Stores the following information
+    -> Information about number of total and usedSlots
+    -> Types of cars stored there
+    -> Methods to store a car
+        -> This will modify the free_slot count
+
+
+-> Parking System
+
+    -> This actor will be responsible for letting a car in, based of availability
+    -> If the space is available, enter the user
+        -> The details of user will be stored in a hashMap
+
+    -> Before doing any billing, system will check if a car can be entered to a system
+    -> Information about billing.
+        -> Car number, entry time, exit time, total bill
+        -> Which car is going to which floor (based on a Queue based system)
+    -> How the billing information is stored, this could be non-persistant
+        -> Do we want to retain the billing information of each car?
+            -> We would require either an internal hashMap or a DB for a bigger organization
+            -> We could choose not to store
+        -> Current plan, store in a HashMap inside Parking System
+
+
+-> TODO:
+    -> Enter the Data Structure in a HashMap
+    -> Map stores the vehicle number as Key, and User asString the HashMap
+        -> We are only storing most recent entry of user, not the entire history
+        -> So, based on availability in the slots
+            -> Enter / Update the user in the userMap
+    
+    -> Exit after inacitivity of 1 minute or ctrl + c
+
+
