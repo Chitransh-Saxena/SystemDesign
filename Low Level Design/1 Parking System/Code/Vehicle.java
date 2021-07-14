@@ -1,7 +1,3 @@
-enum Type{
-    SEDAN, HATCHBACK, SUV, TWO_WHEELER;
-}
-
 public class Vehicle {
 
     // Save vehicle details in order for system to ingest that

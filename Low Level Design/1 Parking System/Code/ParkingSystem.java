@@ -2,20 +2,20 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
 class UserDetails {
 
-    String userName;
-    String vehicleNumber;
+    public static final long RATE_PER_HOUR = 50;
+    public static final long MIN_COST = 10; 
+
+    Type vType;
     Date entryTime;
     Date exitTime;
 
     Integer amount;
 
-    public UserDetails(String userName, String vehicleNumber, Date entryTime) {
+    public UserDetails(Type vType, Date entryTime) {
 
-        this.userName = userName;
-        this.vehicleNumber = vehicleNumber;
+        this.vType = vType;
         this.entryTime = entryTime;
     }
 
@@ -23,40 +23,49 @@ class UserDetails {
         this.exitTime = exitTime;
     }
 
-    public long getBill() {
+    public boolean isUserPresent(){
+        if(exitTime != null) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 
-        // Charging Rupees 50 per hour
+
+    public long getBill() throws Exception {
+
+        if(exitTime == null) {
+            throw new Exception("Set the exit time for user\n");
+        }
+
 
         long differenceInMilliSecs = Math.abs(exitTime.getTime() - entryTime.getTime());
         long hours = (differenceInMilliSecs / (60 * 60 * 1000)) % 24;
 
-        long amount = 50 * hours;
+        long amount = RATE_PER_HOUR * hours;
 
         if(amount == 0){
-            return 10;
+            return MIN_COST;
         }
         else{
             return amount;
         }
 
     }
-    
 }
 
 public class ParkingSystem {
 
 
-    public HashMap<String, String> userDetails;
+    public static HashMap<String, UserDetails> userMap = new HashMap<>();
 
     public static void main(String[] args) {
 
         System.out.println(" ==== Parking is Open ====");
         System.out.println("\nHere are the availability details");
 
-        System.out.println("TOTAL SEDAN SLOTS = " + ParkingFloor.slots_SEDAN + "\nFREE SEDAN SLOTS = " + ParkingFloor.free_SEDAN);
-        System.out.println("\nTOTAL SUV SLOTS = " + ParkingFloor.slots_SUV + "\nFREE SEDAN SLOTS = " + ParkingFloor.free_SUV);
-        System.out.println("\nTOTAL HATCHBACK SLOTS = " + ParkingFloor.slots_HATCHBACK + "\nFREE SEDAN SLOTS = " + ParkingFloor.free_HATCHBACK);
-        System.out.println("\nTOTAL TWO WHEELER = " + ParkingFloor.slots_TWO_WHEELER + "\nFREE SEDAN SLOTS = " + ParkingFloor.free_TWO_WHEELER);
+        showParkingMetrics();
 
 
         // Parking lot will close if admin manually closes it (ctrl + c)
@@ -85,15 +94,50 @@ public class ParkingSystem {
             if(floor.isFree(v.getType()) == true){
 
                 System.out.println("Available, Entering user");
-
+                makeVehicleEntry(v, floor);
 
             }
             else{
                 System.out.println("Sorry, no space");
             }
-            
-
 
         }
+    }
+
+    private static void makeVehicleEntry(Vehicle v, ParkingFloor floor) {
+
+        if(checkIfUserIsInside(v.getV_number())) {
+
+            System.out.println("\n\n*****Car with same number is already present, did you steal the vehicle and change the number or what?****\n");
+        }
+        else{
+            Date now = new Date();
+            UserDetails user = new UserDetails(v.getType(), now);
+            userMap.put(v.getV_number(), user);
+
+            floor.putVehicle(v);
+            showParkingMetrics();
+        }
+    }
+
+    private static void showParkingMetrics() {
+
+        System.out.println("TOTAL SEDAN SLOTS = " + ParkingFloor.slots_SEDAN + "\nFREE SEDAN SLOTS = " + ParkingFloor.free_SEDAN);
+        System.out.println("\nTOTAL SUV SLOTS = " + ParkingFloor.slots_SUV + "\nFREE SUV SLOTS = " + ParkingFloor.free_SUV);
+        System.out.println("\nTOTAL HATCHBACK SLOTS = " + ParkingFloor.slots_HATCHBACK + "\nFREE HATCHBACK SLOTS = " + ParkingFloor.free_HATCHBACK);
+        System.out.println("\nTOTAL TWO WHEELER = " + ParkingFloor.slots_TWO_WHEELER + "\nFREE TWO WHEELER SLOTS = " + ParkingFloor.free_TWO_WHEELER);
+    }
+
+    private static boolean checkIfUserIsInside(String v_number) {
+
+        if(userMap.containsKey(v_number)) {
+
+            UserDetails user = userMap.get(v_number);
+            return user.isUserPresent();
+        }
+        else{
+            return false;
+        }
+
     }
 }
