@@ -27,12 +27,23 @@
 
 
 -> TODO:
-    -> Enter the Data Structure in a HashMap
+    -> Enter the Data Structure in a HashMap\
+        -> This map is not a persistant storage (not a DB)
+        -> it is just a in-memory mock DB
+
+        -> DONE
+    
     -> Map stores the vehicle number as Key, and User asString the HashMap
         -> We are only storing most recent entry of user, not the entire history
         -> So, based on availability in the slots
             -> Enter / Update the user in the userMap
+
+        -> DONE
     
     -> Exit after inacitivity of 1 minute or ctrl + c
+        -> PENDING
+
+    -> Exit and Billing Pending
+        -> PENDING
 
 
