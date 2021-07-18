@@ -1,0 +1,15 @@
+Implement a message queue
+    -> It is basically a publish-subscribe model
+    -> Support multiple topics to which messages can be published
+    -> Publisher should be able to publish message to a topic
+    -> Subscribers should be able to subscribe to a topic
+    -> Once a message is published, all the subscribers should be able to recieve that message
+    -> Subscribers should be running in parallel
+
+Applications of a MQ
+    -> Used a lot in distributed systems
+        -> A publisher node could publish a message to a certain job topic
+        -> This message would be recieved by all the subscribers, we can call these as workers
+        -> This message would contain the vital details of a job to be done, and we could even append something like Process ID to make stuff unique (either message or response)
+        -> This way, MQ could be used to perform jobs in distributed systems
+    -> Master Slave architecture could follow this
