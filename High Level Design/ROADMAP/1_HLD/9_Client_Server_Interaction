@@ -1,0 +1,20 @@
+How do clients and servers interact?
+
+-> REST APIs
+    -> A simple API, which adheres to REST standards
+        -> Stateless, no storing of data
+        -> Possible caching
+        -> Uniform Interface
+            -> For all APIs, interface should be similar, makes it easy for development
+        -> Distributed System
+            -> API could be deployed on Server A, disk on server B, request processed on server C'
+        -> Clients and Servers should be loosely coupled
+
+-> REST Endpoint
+    -> The url at which the request has to go
+
+-> REST API acts as a single gateway
+    -> Consider, what is gonna happen
+    -> A user is gonna hit the URL, and thats all.
+        -> We have our REST endpoint getting hit with a request
+        -> How do we process this request, where we process this request. It depends on us

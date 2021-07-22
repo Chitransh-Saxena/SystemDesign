@@ -1,3 +1,5 @@
+package Message_Queue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,10 @@ public class Topic {
     public void addSubscriber(@NonNull TopicSubsriber subscriber) {
 
         subscribers.add(subscriber);
+    }
+
+    public List<TopicSubscriber> getSubscribers() {
+        return subscribers;
     }
 
     public String getTopicName() {

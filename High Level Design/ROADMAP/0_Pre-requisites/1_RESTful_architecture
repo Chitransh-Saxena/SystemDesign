@@ -19,4 +19,13 @@ Here are the few architectural constraints which REST wants to impose
 -> Layered System
     -> It can be considered as a distributed system, but where the work is distributed as well
     -> API could be deployed on server A, disk could be there on server B, and some other activities could be there on server C.
-    
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+-> REST and RESTful webservices
+    -> REST is not HTTP
+    -> REST is not a protocol
+    -> It is simply a guideline
+        -> It says, if you follow these guidelines, you will be able to build a optimum and scalable system and web apps
+    -> Web services which follow these guidelines are called RESTful

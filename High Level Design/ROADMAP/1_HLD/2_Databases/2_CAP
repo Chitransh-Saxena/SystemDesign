@@ -1,0 +1,5 @@
+Consisntency - Data should be consistent across all the servers
+
+Availability - When a request is sent, we should get a response 100% of the time
+
+Partition Tolerance - System should not fail, there could be delays, but no failures

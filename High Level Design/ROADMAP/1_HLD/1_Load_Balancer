@@ -1,0 +1,10 @@
+-> Load Balancing - The concept of having a service running on n number of servers and balancing the requests amongst those n servers is called Load Balancing.
+
+-> How can this be achieved? One approach could be using consistent hashing. Let's see simple Hashing for Now.
+
+-> The approach is simple.
+	
+	1. We can assume that each request to a server is having at least one unique id called request_id.
+	2. We can then devise a hash function to which we can pass that id and it will return an integer to us.
+	3. Now we can apply some mathematics and formulate a way to direct the request to a particular server based on the Integer we get after all the calculation
+
