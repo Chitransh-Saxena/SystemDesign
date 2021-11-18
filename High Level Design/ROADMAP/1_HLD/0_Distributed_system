@@ -31,3 +31,24 @@ This where internet's definitions start
     -> Parallelism
     -> Low Latency
         -> Users can have node in different locations. Traffic will hit the node with mininum distance, thus lower time to hit the server
+
+
+CAP Theorem
+
+In a distributed system, you can only support two of the following guarantees
+
+-> Consistency - Clients get the most recent information upon a request
+
+    -> Imagine storing some data in some disk of some server
+    -> Now, when a customer requests for something, his request might go to a different server, and since that data is not there .... he did not receive the most recent write
+        -> He recieved a failure
+    
+    -> How to fix this?
+        -> This kind of information which could be requested back, should be stored in some shared storage or some DB
+
+-> Availability - The service should always be available to client no matter what
+    
+
+-> Partition Tolerance - The system continues to work, despite any partitioning due to network failures
+    -> Think partition as, how connected systems are not connected anymore in case of network failure
+    -> This creates a partition like scenario

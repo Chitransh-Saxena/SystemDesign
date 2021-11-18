@@ -1,0 +1,11 @@
+Stack - 
+    -> Used by 1 thread of execution
+    -> Stack memory of 1 thread cannot be accessed by another thread
+    -> Follows LIFO manner
+        -> Once out of stack, object eligible for garbage collection
+    -> Contains local variables, primitive variables and references to objects
+
+Heap
+    -> Heap memory is used by all parts of execution
+    -> Shared among threads
+    -> Contains actual data stored in any object, whereas the reference of these objects are stored in stack

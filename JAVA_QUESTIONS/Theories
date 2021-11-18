@@ -1,0 +1,236 @@
+Collection is a interface.
+
+interface Collection<E> extends interable
+
+-> Collections is further seggragated in 3 categories
+-> Or we can say, there are 3 major interfaces that extend the Collection inteface
+-> NOTE: One class implements a interface, but an interface can extend another interface
+
+    -> List - Position based storage, elements can be added at any specific position
+    -> Set - Unique objects only
+    -> Queue - It supports the order of processing.
+
+    -> List
+        -> List interface could be implemented by following few classes
+            -> ArrayList
+            -> LinkedList
+            -> Stack
+            -> Vector
+
+        -> List<Integer> li = new ArrayList<>();
+            -> This means, create an instance of ArrayList of type Integer which is implementing the List interface
+    -> Set
+        -> Set interface is implemented by any of the following interfaces
+            -> HashSet
+            -> LinkedHashSet
+            -> TreeSet
+            -> EnumSet
+        
+    -> Queue
+        -> Queue interface is implemented by following classes
+            -> ArrayDeque
+            -> LinkedList
+            -> PriorityQueue
+
+-> Map is part of collection framework but it is not part of Collection Interface.
+    -> Keys are unique indentifiers.
+
+
+List is the 
+
+
+####
+ArrayList
+
+ArrayList<Integer> arr = new ArrayList<>();
+-> Creates empty ArrayList.
+-> arr.add(1)
+    -> This creates a array list of size 10
+    -> Adds 1 to it
+-> If we reach limit, increases size by n/2
+
+-> arr.add(new ArrayList<>(1,2,3,4,5));    // Adds new list to current list
+
+-> Access the elements via get(index)
+-> Remove the elemnt at certain index by remove(index)
+    -> O(n)
+    -> remove(int) - This removes value at index
+    -> remove(Integer.valueOf(some_number)) -> This finds the value and removes based on value
+
+-> list.clear() - Clears the list
+-> list.set(index, val)
+-> list.contains(val)
+
+
+#######
+Iterator - Implements listIterator
+
+Iterator<Integer> it = list.iterator();
+
+while(it.hasNext()) {
+    SOP(it.next());
+}
+
+
+#######
+Stack
+
+-> Implements LIFO
+
+-> Stack<Integer> st = new Stack<>();
+    -> push()
+    -> pop()
+    -> peek()
+
+
+###########
+Queue
+
+FIFO
+
+Queue<Integer> q = new LinkedList<>();
+
+-> offer(val);
+-> poll();      // removes last element and returns it
+-> peek();      // next in line
+
+
+
+#############
+
+PriorityQueue - Implements min heap, max heap
+
+Queue<Integer> pq = new PriorityQueue<>();          // By default it is min-heap
+
+    -> offer()
+    -> poll()
+    -> peek()
+    -> remove()
+
+Queue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());     // Implements max heap
+
+
+
+##########
+ArrayDeque
+
+-> ArrayDeque ad = new ArrayDeque<>();
+    -> offer()      // offers at last
+    -> offerFirst()
+    -> offerLast()  // same as offer
+    
+    -> peekFirst()
+    -> peekLast()
+
+
+
+####################################
+
+Set
+
+-> No duplicates allowed
+-> HashSet, LinkedHashSet and TreeSet implement Set
+
+
+-> HashSet
+    Set<Integer> hs = new HashSet<>();
+
+    -> hs.add(val)
+    -> prints in random order, no sorting
+    -> set.size()
+    -> set.isEmpty()
+    -> set.clear()
+
+-> LinkedHashSet
+
+    Set<Integer> hs = new LinkedHashSet<>();
+    -> It maintains a link, thus the original order is maintained along with the uniqueness property
+
+-> TreeSet
+
+    Set<Integer> hs = new TreeSet<>();
+    -> Stores in sorted order because it is implementing binary search tree while hashset does not mantain any order as such
+    -> Treeset is slower because of sorted order, it implements Red-Black Tree while Hashset works with the concept of Hashtables.
+
+
+Behind the scenes, Set is using equals() method to compare 2 elements for uniqueness and order
+    -> We need to override this method in case of set of custom objects
+    -> equals(Object o)
+
+
+
+##############################################################################################################
+
+Map
+-> Map is the interface which is implemented
+
+Map<Integer, String> m = new HashMap<>();
+
+-> m.put(k,v);
+-> m.get(k);
+-> m.contains(k);
+-> HashMap stores unique keys
+    -> In case of new value for same key, updates the  value at that key
+
+-> m.getOrDefault(k, default_if_no_key)
+
+for(Map.EntrySet<String, Integer> e: m.EntrySet()) {
+
+    e.getKey();
+    e.getValue();
+}
+
+for(String k: m.getKeySet()) {
+    k;
+}
+
+
+-> TreeMap
+    -> Sorts the keys, uses binary search tree
+    -> Sorts the strings in lexographical order
+
+
+
+
+###############################
+
+Comparing custom objects
+
+-> Implementing Comparator interface
+    public class customComparator implements Comprator<myObject> {
+
+        public int compare(myObject o1, myObject o2) {
+            return Integer.compare(o1.val, o2.val);
+        }
+    }
+
+
+    Collections.sort(list, new customComparator())
+
+-> Implementing Comparable interface
+    -> Can be done on your current class, just make it implement Comparable
+    -> Override comparaTo(MyObject o) function
+
+
+Difference between comaprator and comparable
+-> Comaprator is very dynamic
+-> comparable is fixed for a class
+
+-> Comparator can be defined at runtime too
+    -> Collections.sort(list, new Comparator<MyObject>() {
+
+        @Override
+        public int compare(myObject o1, myObject o2) {
+            return ..
+        }
+    } );
+
+
+
+
+
+
+
+
+
+

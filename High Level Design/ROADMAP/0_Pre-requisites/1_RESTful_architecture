@@ -29,3 +29,65 @@ Here are the few architectural constraints which REST wants to impose
     -> It is simply a guideline
         -> It says, if you follow these guidelines, you will be able to build a optimum and scalable system and web apps
     -> Web services which follow these guidelines are called RESTful
+
+
+
+-> SOAP web-services (Simple Object Access Protocol)
+    -> It came into picture way before REST came.
+    
+    Purpose
+        -> Applications which are built on different platforms using different languages could communicate with each other.
+    
+    -> So, basically SOAP is a messaging protocol for exchanging structured information via web-services.
+
+    REST uses HTTP protocols like GET, POST, PUT etc to work with data.
+
+    -> SOAP protocol uses predifined rules and guidelines.
+        -> REST has guidelines but they are very loose.
+
+    -> SOAP is function driven - Data is as available as services.
+        -> REST is data driven - the data is available as a resource.
+    
+    -> Both are statelessm but SOAP could be made stateful if necessary.
+
+    -> SOAP API calls cannot be cached, REST API calls can be cached.
+        -> SOAP uses HTTP POST as a transfer mechanism.
+            -> POST request is not idempotent, it means each POST request will not have same effect.
+            -> Example you create a user with POST request, so each time you pass a new name, it creates a new user....DIffernt effect as compared to GET and other requests.
+                -> Therefore, POST is idempotent.
+            
+            -> Since, POST is non-idempotent, it is not cached.
+
+        -> REST maye be cached, based on the fact that the request is GET, PUT or DELTE type.
+
+    -> SOAP offers a little more security
+        -> WS Security with SSL
+            -> SOAP has built in ACID compliance.
+            -> Therefore SOAP is very secure and better in terms of sensitive info.
+        -> REST offers HTTPS and SSL.
+
+    -> SOAP requires more computing power and bandwidth
+        -> Bandwidth is the amount of data transferred at a given amount of time.
+        -> REST requires very less resources.
+    
+    -> SOAP only works with XML.
+        -> REST works with JSON, plain text, html headers ...etc. (type = "applicaiton/json")
+
+    -> Transfer protocols
+        -> SOAP works with HTTP, UDP, SMTP etc.
+        -> REST only works with HTTP.
+    
+    -> When to use SOAP
+        -> Need for asynchronous processing and subsequent invocation, guaranteed level of security
+        -> When communication between client and server are specified, SOAP imposes that on a better level.
+        -> Sensitive information.
+        -> Payment gateways, telecommunications enterprise applications
+    
+    -> When to use REST?
+        -> When netowrk bandwidth is a constraint.
+        -> When statelessness is fine.
+            -> But if we want to keep track of flow of requests, SOAP is better.
+        -> When GET requests need to be cached, REST could be used.
+
+        -> When we have public APIs for services like social network, mobile services etc.
+

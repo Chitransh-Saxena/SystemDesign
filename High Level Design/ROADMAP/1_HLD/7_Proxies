@@ -15,6 +15,15 @@ Reverse Proxy
     -> Reverse proxy is the one face of the website whose address is shown to the public.
         -> People access this, and from here it is delegated to the servers
 
+    Advantages of a reverse proxy
+        -> Increased security - Hide info about BE servers, blacklist IPs if needed
+        -> Increased scalability and flexibility - Client's only see the IP of reverse proxy.
+            -> So, you can scale in anyway you want and let the reverse proxy re-direct the client's requests to appropriate server
+
+        -> SSL Termination - Decrypt the requests and encrypt the responses so BE servers do not have to do it
+            -> But wouldn't this make the Reverse Proxy slower and more complex?
+        -> Caching - Can return the response of a cached request
+        -> Static content - Can serve the static content directly
 
 NGINX
 
@@ -32,3 +41,15 @@ So, how does nginx actually work?
 
 -> Also, nginx is wrapped up in a docker container, sometimes.
 -> Since nginx is programmed to be always listening, nginx is always up and running.
+
+
+
+
+
+
+##################
+
+LOAD BALANCER VS REVERSE PROXY
+
+-> Load balancer is required when multiple servers are involved, but reverse proxy could be useful in case of even just 1 server
+-> Things like nginx support both

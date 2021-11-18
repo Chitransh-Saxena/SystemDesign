@@ -1,0 +1,32 @@
+Webserver
+
+* It is a peice of software that is serving the content
+* So, how does webserver actually work?
+    * It "Listens"
+    * on a "Port"
+    * For a "request"
+    * this request is sent via a "Transport protocol"
+    * and returns a "response"
+    * containing the requested "resource/content"
+
+* Listen
+    * Webserver is basically like a "waiter / server" which is waiting to serve us with some request
+    * How does this happen?
+        * Well, when someone approaches the webserver via some host_ip:port_number, we reach the webserver
+        * Once we reach, webserver is ready to serve us
+        * So, in our request, we usually provide the request paramters along with host_ip and port_number.
+
+* Port
+    * This port is basically one of the network ports that is provided by the operating system on which the webserver is running on
+    * One webserver could be listening to 1 or many ports
+        * I need to learn how to make this happen
+        * Is it some sort of local machine scaling?
+        * Most probably, it could be a different web sever of the same type
+    
+* Request
+    * The way we communicate over the web is based on "HTTP"
+    * So, each communication is basically an assembly of a HTTP request and response
+    * A standard "request" contains the host_ip:port_number/request_paramters
+    * But HTTP is a lot more than this, it contains information about what kind of request you are sending, what kind of response you need, and a lot more, including cookies and stuff
+    * Know about HTTP here
+    

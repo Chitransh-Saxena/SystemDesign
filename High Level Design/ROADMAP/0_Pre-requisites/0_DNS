@@ -31,3 +31,10 @@ How two devices connected to internet locate and communicate with each other?
     -> OS Level DNS caching
         -> Local persistence layer also keeps track of DNS records
         -> Still need clarity on this
+
+
+So, typically the response of DNS is cached into your browser or system and is associated with some TTL (Time To Live)
+    -> This means, if you hit the same DNS again before your TTL expires, you will be sent to same server
+    -> Benefits?
+        -> If you are a user who is doing some crazy stuff, your stuff will be cached onto the website's server
+        -> If you are sent to same server again, typically you will hit the cache for some requests and will get a faster response time

@@ -1,0 +1,53 @@
+Interface is something which actually forces us to use abstraction
+    -> We are under compulsion to override some certain methods
+    -> Interface must always be public
+    -> Inteface cannot contain constructors
+    -> A little slower, because it needs indirection to find corresponding method in actual class
+    -> All data members public and static and by default
+    -> All methods are public and abstract by default
+
+    -> Since Java8 we can have a method body in Interface
+
+Abstract class
+    -> In abstract class we are not under compulsion to override methods, we can choose not to do so
+    -> Abstract class be of any access modifier
+    -> Can have non-abstract methods
+    -> Can have constructor
+    -> Faster than interface
+    -> We cannot create objects of abstract class
+        -> This is a bit tricky .... the developer cannot create object, but the runtime environment can do so
+
+class Shape {
+    void draw() {
+        print("drawing shape");
+    }
+}
+
+abstract class MyShape {
+    abstract void draw() {
+        print("drawing shape");
+    }
+}
+
+class circle extends MyShape{
+    void print() {
+        print("Drawing Circle");
+    }
+}
+
+public static void main(String[] args) {
+
+    Shape s = new Shape();
+    s.draw();           // This works
+
+    MyShape ms = new MyShape();     // This is not possible, gives error, user cannot create instance of abstract class
+
+    MyShapre ms;
+    ms = new Circle();              // So, now, an instance of circle is created, but before that, an instance of MyShape is also created by the runtime environment
+    ms.draw();
+}
+
+
+Q. Java does not support multiple inheritence because of ambiguity, so why multiple interface implementation is supported? What if they have same name?
+    -> Because interface does not bring any implementation with them
+    -> The implementation is created by the class which is doing that

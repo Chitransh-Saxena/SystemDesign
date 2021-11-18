@@ -1,0 +1,28 @@
+The work of the load balancer is to be a layer at DNS. When any request is hit, this item decides which server should this request be taken to
+
+-> But now, there is one problem of session management.
+-> If, because of some flaw in load balancing algorithm or maybe it is a requirement, we are sent to some other server
+    -> Our session is basically lost. Why?
+    -> Session is typically a file which is saved in server's temp directory
+
+-> So, what could go wrong in this case?
+    -> We could be asked to login again
+    -> We might lose stuff in cart
+    -> If we have multiple tabs open and adding books in each tab, we might not see the correct aggregate in cart as we should
+
+
+So, what could we do to avoid this bad user experience?
+
+-> We could have a storage which is attached to all of these servers, which is typically just for mantaining the session state
+-> So, the session state is now shared across all the servers
+    -> We could introduce some level of RAID here in order to make this protected
+
+-> So, what happens now?
+    -> A user hits the load balancer, we ask fetch the details from this server, and send the user here.
+    -> If it is a new user, we send him to any other server
+
+    OR
+
+    -> The lod balancer sends the user to any server based on it's logic
+    -> Before starting to operate, the server loads the session details from this shared server where only session state is stored and nothing else
+    -> This introduces 1 network call, could increase latency

@@ -1,0 +1,37 @@
+SQL:
+
+    -> We have a schema
+        -> schema is something which defines what column is gonna have what data type
+        -> A table strictly adheres to the rules set by the schema
+    -> We have multiple tables
+    -> These tables could possibly be related to each other
+
+    -> And we use the SQL query language to interact with this DB and fetch our results
+
+
+NoSQL:
+
+    -> To begin with, there is no schema involved in this kind of database
+    -> It stores a key value pair
+    -> There are no relations, based on the data fetched, in the code we can form some sort of relation and use that information.
+        -> One idea could be to manually add data to the DB in a relational format
+        -> But this is just too much work, and this is not what nosql is meant for
+
+    -> This is mostly used to store data which we wanna fetch quickly based on the key
+        -> How is this fast? Because internally it has it's own mechanism of something like HashMap to quickly fetch your data based on the key
+        -> Traditional RDBMS relies on indexing and works on that
+
+
+
+Comparing above two in terms of use:
+
+-> SQL can retrieve selected data, while noSQL will retrieve entire blob of information based on key
+    -> We can use this to our advantage when we know that certain fields are gonna be put together, use noSQL DB
+    -> Relevant Data could be stored in one blob, so it becomes easy to insert and retrieve
+
+-> Schema flexibility
+-> Built for scale
+-> But updating a noSQL DB is just difficult
+    -> Remove the old field, add a new field
+        
+    

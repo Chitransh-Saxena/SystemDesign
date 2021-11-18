@@ -1,0 +1,57 @@
+HTTP Crash Course
+
+-> Hyper Text Transfer Protocol
+-> Responsible for communication between web server and the client
+-> Each time we go to web and make some requests either or visit any web page
+	-> We are basically making a HTTP request
+	-> And this basically creates a cycle of request and response
+
+-> HTTP is stateless
+	-> Every request is completely independent
+-> Each request is a single transaction
+	-> So, once you make a request, the HTTP protocol does not remember it now
+	-> And it is all atomic
+
+-> HTTPS
+	-> HTTP Secure
+	-> Data which is sent is ecrypted by SSL / TLS
+	-> SSL - Secure Socket Layer or TLS - Transport Security Layer
+	-> How does this HTTPS work?
+		-> I remember putting the SSL certificates in the docker container
+		-> So, the SSL certificates need to be put on the HOST SIDE
+
+-> HTTP Methods
+	-> Basically all the CRUD Operations
+
+-> Each HTTP Request has the following fields
+	-> Header - This is basically metadata about our HTTP request
+
+		-> General Headers
+			-> Request URL
+			-> Request Method
+				-> CRUD
+			-> Status Code: 404, 200 etc
+			-> Remote Address - IP of the remote computer
+			-> Referral Policy - Used if you are going from one page to another
+
+		-> Response Headers - This gives addtional instructions to the client system about the web page or whatever information the server is returning
+
+
+			-> Server - This is usually nginx or something like that
+				-> Sometimes hidden, to prevent hacking
+			-> Set-cookies - To be sent to client
+				-> Returns key-value pairs
+			-> Content-Type - json, text/html etc.
+			-> Content-Length - unit is octets
+			-> Date
+
+		-> Request Headers
+			-> Cookies - If there was a cookie sent by the server, and server requests it back
+			-> Accept-xxx - Accepting coding, accepting characterset
+			-> user-agent
+		
+		
+	-> Body
+		-> Body includes either the request body or the response body
+		-> If you are submitting some form, then the information you submit in form is request body
+	

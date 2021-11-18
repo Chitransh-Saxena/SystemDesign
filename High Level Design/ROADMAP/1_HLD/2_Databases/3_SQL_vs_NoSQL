@@ -1,3 +1,36 @@
+
+#######################################################
+
+*** NOSQL ***
+
+NoSql is a collection of data items represented by key-value store, document store or a graph database
+-> Data is denormalized and joins are done in application itself
+-> NoSQL lacks ACID properties.
+
+-> Just like distributed systems are based on CAP theorem, NoSQL DBs are based on BASE theorem
+
+BASE 
+	-> Basically Available - Guaranteed availability
+	-> Soft State - The state may change without any input
+	-> Eventual Consistency - System will become consistent over time if no input is present
+
+
+Keys are stored in a kind of Hash Table with some hash value associated to a key
+-> This improves the access time
+
+
+
+
+Graph Database
+-> Each node is record, and each edge is a relationship between those two records
+-> Graph databases are optimized to represent complex relationships with many foreign keys
+	-> They are good for multiple many to many relationships
+
+-> Offer high performance for data models with complex relationships such as a social network
+
+
+#######################################################
+
 What is Redis ?
 
 -> It is a popular key,value in memory stored, cache database
