@@ -1,0 +1,106 @@
+-> What is Spring Boot?
+    -> Spring Boot is a module of Spring Framework which provides Rapid Application Development (RAD) feature.
+    -> We can create production ready stand-alone applications really easily
+    -> Widely used to develop REST API and RESTful services
+
+-> Why to use Spring?
+    -> Dependency Injection is helps in control over bean management
+        -> @Autowired
+    -> Hibernate is there for excellent ORM control
+    -> Reduces the cost and development time by a lot
+    -> We can create loosely coupled applications
+
+-> Spring Boot Architecture
+    -> Presentation Layer
+        -> Handles HTTP requests, translates JSON parameter to object
+    -> Business Layer
+        -> Business Logic (@Service)
+        -> Token Authorization
+    -> Persistance Layer
+        -> Storage Logic, Hibernate stuff
+    -> Database
+
+-> @SpringBootApplication 
+    -> This annotation enables following annotations
+    -> @EnableAutoConfiguration - Enables auto-configuration mechanism, like the $item will be referred from the application.properties file and value will be set
+    -> @ComponentScan - Scans the package to find where the application is located
+    -> @Configuration - Tells that current class contains beans that need to be configured
+
+-> @Autowired
+    -> It is used to automatically wire (set) the Spring Bean (an object which is controlled by Spring IoC) on the respective setter methods
+    
+    @Autowired
+    public setUser(User user) {
+        this.user = user;
+    }
+
+-> @Configuration
+    -> Class annotated with @Configuration is used by Spring IoC for looking for Bean definitions
+
+-> @Bean
+    -> This tells the method to produce Spring Beans
+    -> This tells the Spring Container that this methods contains beans to be managed by Spring IoC
+    -> What is Spring Bean?
+        -> These are objects created, configured and managed by the Spring IoC.
+        -> These will be injected into our application then
+
+    -> What are Java Beans?
+        -> These are simple java objects but these adhere to certain coding standards
+            -> The class and the methods need to be public
+            -> Data members must be private
+            -> Getters and setters must be present.
+            -> Must always be serializable
+    
+-> @ComponentScan
+    -> It is used when we want to scan a package for beans.
+    -> It is usually used along with @Configuration
+
+-> @Component
+    -> We can use this to mark a Java class as a Spring Bean.
+    -> So, what is the difference between @Component and @Bean?
+        -> @Component is a class level annotation, @Bean is a method level annotation
+        -> @Component can exist alone, but @Bean has to be always used with @Configuration
+        -> @Component auto-detects and configures the beans, whereas @Bean explicitely declares a single bean.
+
+    -> @Component has different specializations like
+        -> @Controller
+            -> Marks the class as Web-Request handler
+            -> Holds the Mappings for REST APIs
+        -> @Service
+            -> Tells the spring that this class contains business logic
+        -> @Repository
+            -> Tells Spring that this class has DAO that interacts with the DB.
+
+-> @RequestMapping
+    -> It is used to map the web-requests from a URI to a certain method
+    -> Has paramters like method, header, consumes, path ...etc
+    -> With Spring Boot, these things have been updated a lot
+        -> @GetMapping - It is used to tell that below method will give out results based when the API is hit.
+        -> @PostMapping - Data is posted from the user via the APIs headers, which is consumed in the Application
+    -> @RequestBody - Used to bind HTTP request to a method parameter.
+    -> @ResponseBody - Binds the return value of a method to a response body. Then Spring basically serializes the response to a JSON or XML format.
+
+-> @RestController
+    -> Combination of @Controller and @RequestBody which expects JSON or XML
+
+-> Use of application.properties file?
+    -> Use different properties based on different environments like QA, DEV and PROD
+    -> Change default server port
+
+
+-> Different scopes of Beans?
+    -> @Scope, this helps in configuring the scope of a bean
+    -> Singleton
+    -> Prototype - A new bean is created everytime there is a requirement   
+    -> Request - Same as above, but used in web-apps
+    -> Session - new bean created each time a session begins
+    -> Global Session - IDK
+
+-> How auto configuration works in Spring Boot
+    -> Starter POM
+        -> When the dependencies like JPA, etc are configured in pom.xml file, maven pulls the already built .jar files from the maven repository
+        -> META-INF/spring.factories - This holds the conditions of what should be enabled or disabled based on some conditions
+    -> So, when the classpath is scanned, the configuration is set or unset on the bases of that.
+    -> The external dependencies have a @ConditionOn ... some property which get activated based on some condition
+
+

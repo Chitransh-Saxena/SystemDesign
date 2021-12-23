@@ -1,0 +1,29 @@
+int n1 = 7;         // This allocates a value of 7 in stack memory
+Integer n2 = n1;    // This allocates a variable n2 on stack which holds the reference to memory in heap which is of value 7
+
+The process of converting value type to reference type, is called boxing
+
+Compiler does Integer.valueOf(n1) -> This way, it recieves a boxed object of value n1
+
+
+When autoboxing occurs?
+    -> When the primitive value is passed when some method expects a Wrapper class object
+    -> When a primitive value is assigned to a corresponding wrapper class function
+
+
+    List<Integer> li = new ArrayList<>();
+    li.add(5);      // Here, autoboxing occurs
+
+Unboxing
+    -> Converts the instance of wrapper class into it's corresponding primitive type
+
+
+Integer num1 = 10;      // Here a variable num1 is on stack which stores the address of object on heap which has the value 10
+
+int num2 = num1;        // This is unboxing. Here compiler calls num1.intValue(), converts the object of num1 to primitive type
+
+
+
+Why use wrapper class, what are benefits of boxing?
+    -> Being used as an instance, allows us to call several useful methods
+    -> Generics accept only wrapper class objects

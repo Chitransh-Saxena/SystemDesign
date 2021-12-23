@@ -1,0 +1,31 @@
+Integer is a Wrapper Class
+
+
+In Java, we can use variables like
+    -> int, float, char etc.
+    -> These are not objects, they are data types, and rather primitive data types
+
+-> For every primitive varible data type, we have a Class
+    -> int => Integer
+    -> float => float
+    -> char => Character
+
+-> We can simply do
+    Integer i = 10;
+    Or we can do Integer i = new Integer(5);
+    or we can do int i = 5;
+
+    -> But since Java is a purely object oriented language it is a good practise to use Integer 'i' as it is an object and not a variable now.
+
+
+-> If we have a varible like 
+    -> int i = 5;
+    -> And we define a new Integer object, we can do something like this
+    -> Integer x = new Integer(i);          // This is called boxing
+    -> Integer x = i;                       // This is autoboxing
+
+    -> Similarly we have unboxing and auto-unboxing
+
+-> Also, the new frameworks and data structures implement Integer and not int (they implement the wrapper class and not the variable type)
+    -> ArrayList<Integer> list = new ArrayList<>();         // This is valid
+    -> ArrayList<int> list = new ArrayList<>();             // This is invalid

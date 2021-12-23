@@ -1,0 +1,28 @@
+String str1 = "Hello...";
+StringBuilder str2 = new StringBuilder("Hello...");
+StringBuffer str3 = new StringBuffer("Hello ... ");
+
+
+String is immutable
+StringBUffer and StringBuilder are mutable
+
+StringBuffer is thread-safe, because it tries to maintains the synchronization among the resources
+Whereas, StringBuilder does not do that
+
+Therefore, StringBuilder is faster, because of asynchronous.
+
+Same as printf and cout
+
+
+Difference between equals() and '=='
+
+== is for primitives
+
+equals() is used for equality of objects
+
+Example - 
+String s1 = new String("Hello");        //s1 is the reference variable which stores address of memory in heap where 'Hello' is stored
+String s2 = new String("Hello");        // Similar as above, but note, that s2 stores a different memory location in heap which stores 'Hello'
+
+so, if we compare s1 == s2 ...it will come out as false, because memory locations are different
+but, if we do s1.equals(s2), it compares based on value, and that will come out as true, because values are same

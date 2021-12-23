@@ -1,0 +1,9 @@
+Method Overloading - This is a compile time concept where a method of same name but different parameter or different return type is created
+
+Overriding - It is a runtime concept where a 2 methods of literally same name and return type and parameters are present, but at the time runtime it is decided which to call
+    -> It is always observed under inheritence
+
+
+Can you override a private or static method in Java?
+-> A private method cannot be overridden since it is not visible from any other class
+-> 
